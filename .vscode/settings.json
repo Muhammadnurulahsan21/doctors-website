@@ -1,0 +1,13 @@
+{
+  "emmet.excludeLanguages": [
+    "markdown"
+  ],
+
+  "emmet.triggerExpansionOnTab": true,
+  "files.associations": {"*html": "html"},
+  
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "files.autoSave": "afterDelay",
+}
