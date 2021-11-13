@@ -10,4 +10,7 @@
     "javascript": "javascriptreact"
   },
   "files.autoSave": "afterDelay",
+  "cSpell.words": [
+    "labelledby"
+  ],
 }
