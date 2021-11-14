@@ -3,12 +3,13 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import useAuth from "../../../../hooks/useAuth";
 
 const Navigation = () => {
+  const { user, logOut } = useAuth();
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
@@ -19,17 +20,45 @@ const Navigation = () => {
               edge="start"
               color="inherit"
               aria-label="menu"
-              sx={{ mr: 2 }}
+              sx={{ mr: 3 }}
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1, mr: 5 }}>
-            Doctors Portal
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{ flexGrow: 1, textAlign: "start" }}
+            >
+              Doctors Portal
             </Typography>
-            <Link to="/home" sx={{ mr: 5 }} style={{ textDecoration: "none" }}>Home</Link>
-            <Link to="/appointment" sx={{ mr: 5 }} style={{ textDecoration: "none" }}>Appointment</Link>
-            <NavLink to="/login" sx={{ mr: 5 }} style={{ textDecoration: "none" }} ><Button color="inherit">Login</Button></NavLink>
-            
+
+            <NavLink to="/home" style={{ textDecoration: "none" }}>
+              <Typography sx={{ mr: 5 }} color="white">
+                Home
+              </Typography>
+            </NavLink>
+            <NavLink to="/appointment" style={{ textDecoration: "none" }}>
+              <Typography sx={{ mr: 5 }} color="white">
+                Appointment
+              </Typography>
+            </NavLink>
+
+            {user.email ? (
+              <Typography sx={{ mr: 5 }} style={{ cursor: 'pointer'}} onClick={logOut} color="white">
+                Log Out
+              </Typography>
+            ) : (
+              <NavLink to="/login" style={{ textDecoration: "none" }}>
+                <Typography sx={{ mr: 5 }} color="white">
+                  Login
+                </Typography>
+              </NavLink>
+            )}
+            <NavLink to="/register" style={{ textDecoration: "none" }}>
+              <Typography sx={{ mr: 5 }} color="white">
+                Register
+              </Typography>
+            </NavLink>
           </Toolbar>
         </AppBar>
       </Box>
