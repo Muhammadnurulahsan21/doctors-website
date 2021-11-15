@@ -44,9 +44,21 @@ const Navigation = () => {
             </NavLink>
 
             {user.email ? (
-              <Typography sx={{ mr: 5 }} style={{ cursor: 'pointer'}} onClick={logOut} color="white">
-                Log Out
-              </Typography>
+              <Box>
+                <NavLink to="/dashboard" style={{ textDecoration: "none" }}>
+                  <Typography sx={{ mr: 5 }} color="white">
+                    Dashboard
+                  </Typography>
+                </NavLink>
+                <Typography
+                  sx={{ mr: 5 }}
+                  style={{ cursor: "pointer" }}
+                  onClick={logOut}
+                  color="white"
+                >
+                  Log Out
+                </Typography>
+              </Box>
             ) : (
               <NavLink to="/login" style={{ textDecoration: "none" }}>
                 <Typography sx={{ mr: 5 }} color="white">
